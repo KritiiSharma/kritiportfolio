@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kriti Sharma – Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #253158;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #faf8f3;
+    --text: #1e1e1e;
+    --muted: #555;
+    --light: #888;
+    --border: #ddd8cc;
+    --accent-bg: #f4f1ea;
+  }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: #e8e4dc;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 68mm 1fr;
+    overflow: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 297mm;
+  }
+
+  .sidebar-header {
+    background: var(--navy-mid);
+    padding: 26px 20px 22px;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .title-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-top: 6px;
+  }
+
+  .sidebar-body { padding: 18px 20px; flex: 1; }
+
+  .sb-section { margin-bottom: 16px; }
+
+  .sb-heading {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 5px;
+    margin-bottom: 9px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+    word-break: break-all;
+  }
+  .contact-item .ico { color: var(--gold); font-size: 12px; min-width: 14px; margin-top: 1px; }
+  .contact-item a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .contact-item a:hover { color: var(--gold-light); }
+
+  .skill-group { margin-bottom: 10px; }
+  .skill-cat {
+    font-size: 12px; font-weight: 600; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--gold-light); margin-bottom: 4px;
+  }
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    font-size: 12px; padding: 2px 5px; border-radius: 2px;
+  }
+
+  .soft-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 4px; }
+  .soft-list li {
+    font-size: 12px; color: rgba(255,255,255,0.8);
+    padding-left: 10px; position: relative;
+  }
+  .soft-list li::before { content: '▸'; color: var(--gold); position: absolute; left: 0; font-size: 12px; }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 20px 20px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  .summary-bar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.9);
+    padding: 9px 13px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 13px;
+    border-left: 4px solid var(--gold);
+    font-style: italic;
+  }
+  .edu-item {
+    margin-bottom: 10px;
+  }
+  .edu-school {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .edu-degree {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 2px;
+  }
+  .edu-score {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 5px;
+    margin-top: 3px;
+  }
+
+
+
+
+  .section { margin-bottom: 12px; }
+
+  .section-heading {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .section-heading::before {
+    content: ''; display: inline-block;
+    width: 12px; height: 2px; background: var(--gold); flex-shrink: 0;
+  }
+
+  .exp-block {
+    margin-bottom: 9px; padding-bottom: 9px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .exp-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1px; }
+  .exp-company { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .exp-date {
+    font-size: 10px; font-weight: 600; color: var(--gold);
+    background: rgba(201,168,76,0.1); padding: 2px 6px;
+    border: 1px solid rgba(201,168,76,0.3); white-space: nowrap;
+  }
+  .exp-role { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 12px; color: var(--text); line-height: 1.5;
+    padding-left: 11px; position: relative; margin-bottom: 2px;
+  }
+  .exp-bullets li::before { content: '▸'; color: var(--gold); position: absolute; left: 0; font-size: 12px; }
+
+  /* Projects */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+  .proj-card {
+    background: var(--accent-bg);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    padding: 7px 8px;
+  }
+  .proj-card.featured { grid-column: 1 / -1; border-top-color: var(--gold); }
+
+  .proj-name {
+    font-size: 12px; font-weight: 700; color: var(--navy);
+    margin-bottom: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+  }
+  .proj-link {
+    font-size: 10px; color: var(--gold); text-decoration: none;
+    background: rgba(201,168,76,0.1); padding: 1px 5px;
+    border: 1px solid rgba(201,168,76,0.4); border-radius: 2px; white-space: nowrap;
+  }
+  .proj-stack { font-size: 10px; color: var(--light); font-weight: 600; margin-bottom: 3px; }
+  .proj-desc { font-size: 11px; color: var(--muted); line-height: 1.45; }
+
+  .stores-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; align-items: center; }
+  .stores-label { font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: 1px; text-transform: uppercase; }
+  .store-badge {
+    background: var(--navy); color: var(--gold-light);
+    font-size: 12px; font-weight: 600; padding: 2px 7px;
+    border-radius: 2px; text-decoration: none;
+  }
+
+  /* ── BOTTOM ROW ── */
+  .bottom-row {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 10px;
+    margin-top: 11px;
+    padding-top: 10px;
+    border-top: 2px solid var(--navy);
+  }
+
+  .bot-heading {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 1.5px solid var(--gold);
+    padding-bottom: 3px; margin-bottom: 7px;
+  }
+
+
+
+  .ach-box {
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 7px 8px;
+  }
+  .ach-box p { font-size: 12px; color: var(--text); line-height: 1.5; }
+  .ach-box strong { color: var(--navy); }
+
+  .hob-list { list-style: none; }
+  .hob-list li {
+    font-size: 12px; color: var(--muted);
+    padding: 2px 0 2px 11px; position: relative; line-height: 1.4;
+  }
+  .hob-list li::before {
+    content: '◆'; color: var(--gold);
+    position: absolute; left: 0; font-size: 12px; top: 2px;
+  }
+
+  @media print {
+    html, body { background: white; }
+    .page { margin: 0; width: 210mm; height: 297mm; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="name">Kriti Sharma</div>
+      <div class="title-badge">Software Developer</div>
+    </div>
+    <div class="sidebar-body">
+
+      <div class="sb-section">
+        <div class="sb-heading">Contact</div>
+        <div class="contact-item"><span class="ico">✆</span><span>+91-78766-69518</span></div>
+        <div class="contact-item"><span class="ico">✉</span><a href="mailto:kritisharma9518@gmail.com">kritisharma9518@gmail.com</a></div>
+        <div class="contact-item"><span class="ico">⚑</span><a href="https://kritiisharma.github.io/kritiportfolio/" target="_blank">Portfolio</a></div>
+        <div class="contact-item"><span class="ico">✎</span><a href="https://kritisharmablogger.blogspot.com" target="_blank">Blog</a></div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-heading">Technical Skills</div>
+        <div class="skill-group">
+          <div class="skill-cat">Languages</div>
+          <div class="tag-cloud">
+            <span class="tag">PHP</span><span class="tag">JavaScript</span>
+            <span class="tag">Java</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">Frameworks</div>
+          <div class="tag-cloud">
+            <span class="tag">ReactJS</span><span class="tag">NodeJS</span><span class="tag">Laravel</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">Shopify Ecosystem</div>
+          <div class="tag-cloud">
+            <span class="tag">Shopify API</span><span class="tag">Polaris UI</span>
+            <span class="tag">Liquid</span><span class="tag">App Bridge</span>
+            <span class="tag">Webhooks</span><span class="tag">Metafields</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">Databases</div>
+          <div class="tag-cloud">
+            <span class="tag">MySQL</span><span class="tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">APIs &amp; Integrations</div>
+          <div class="tag-cloud">
+            <span class="tag">REST API</span><span class="tag">Google Sheets API</span>
+            <span class="tag">OpenAI API</span><span class="tag">ESF</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">Tools &amp; Paradigm</div>
+          <div class="tag-cloud">
+            <span class="tag">Git</span><span class="tag">VS Code</span>
+            <span class="tag">Postman</span><span class="tag">OOP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-heading">Soft Skills</div>
+        <ul class="soft-list">
+          <li>Leadership</li><li>Communication</li>
+          <li>Critical Thinking</li><li>Time Management</li>
+          <li>Decision Making</li><li>Multi-tasking</li>
+          <li>Observation</li>
+        </ul>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="sb-section">
+        <div class="sb-heading">Education</div>
+        <div class="edu-item">
+          <div class="edu-school">ABV Govt. Institute of Engg. & Tech., Gumma, HP</div>
+          <div class="edu-degree">B.Tech – CSE · 2020–2024</div>
+          <span class="edu-score">8.47 CGPA</span>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Govt. Sr. Sec. School Nalti, HP</div>
+          <div class="edu-degree">12th Non-Medical · 2019–2020</div>
+          <span class="edu-score">90%</span>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Govt. High School Brahlari, HP</div>
+          <div class="edu-degree">10th · 2017–2018</div>
+          <span class="edu-score">82%</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="summary-bar">
+      Motivated Software Developer with <strong>2+ years</strong> of experience in Shopify and full-stack development. Skilled in Node.js, React.js, PHP, and Shopify APIs — building custom apps, automation systems, and scalable web solutions. Currently leading a team at Nivara Commerce LLP.
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-heading">Professional Experience</div>
+
+      <div class="exp-block">
+        <div class="exp-top">
+          <div class="exp-company">Nivara Commerce LLP</div>
+          <span class="exp-date">Nov 2025 – Present</span>
+        </div>
+        <div class="exp-role">Senior Web Developer &amp; Team Lead</div>
+        <ul class="exp-bullets">
+          <li>Leading &amp; mentoring a team of 2–3 junior developers — task allocation, code reviews, and on-time delivery.</li>
+          <li>Architecting Shopify apps (AI Chatbot, ShopBoost 360, Store Migration) using NodeJS, ReactJS, and Shopify APIs.</li>
+          <li>Managing metafield operations, data export/import pipelines, and store automation across multiple client accounts.</li>
+          <li>Built AI, Hybrid, and Human dashboard flows for intelligent customer support chatbot.</li>
+        </ul>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-top">
+          <div class="exp-company">EKROCX Technologies</div>
+          <span class="exp-date">Apr 2024 – Oct 2025</span>
+        </div>
+        <div class="exp-role">Software Developer</div>
+        <ul class="exp-bullets">
+          <li>Built and optimized websites and web apps using Shopify, WordPress, ReactJS, and NodeJS.</li>
+          <li>Customized Shopify themes; developed Contact Form App &amp; Bundle App using NodeJS and ReactJS.</li>
+          <li>Delivered 4+ live Shopify stores: 54thrones.com, thefocusfuel.com, totelpet.com, Gigli.com.</li>
+        </ul>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-top">
+          <div class="exp-company">CDAC Mohali</div>
+          <span class="exp-date">Training – 3 Months</span>
+        </div>
+        <div class="exp-role">Web Development Trainee</div>
+        <ul class="exp-bullets">
+          <li>Hands-on training in HTML, CSS, JavaScript, PHP, and Laravel with practical web project builds.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+      <div class="section-heading">Key Projects</div>
+      <div class="projects-grid">
+
+        <div class="proj-card featured">
+          <div class="proj-name">
+            ShopBoost 360 – Shopify App
+            <a class="proj-link" href="https://www.loom.com/share/5fdff7672a7349b0bc42c20fb2cc39cb" target="_blank">▶ App Demo</a>
+          </div>
+          <div class="proj-stack">NodeJS · ReactJS · Shopify API · Polaris UI · App Bridge</div>
+          <div class="proj-desc">All-in-one merchant app — <strong>Product Bundles</strong> (assign multiple products to a main product, full CRUD + storefront display), <strong>Compare Products</strong> (side-by-side comparison widget), and <strong>Recently Viewed</strong> (browsing history tracker to boost conversions).</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-name">Duplicate Store App <a class="proj-link" href="https://shopifykritisharma.blogspot.com/2025/12/export-shopify-products-using-python.html" target="_blank">↗ Details</a></div>
+          <div class="proj-stack">Python · Shopify Admin API · NodeJS · CSV · ESF · Google Sheets API</div>
+          <div class="proj-desc">Export products, orders, or full store data as a ZIP archive into any Shopify store. Auto-syncs via Google Sheets API every 24 hours.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-name">Shopify AI Chatbot App <a class="proj-link" href="https://www.loom.com/share/c683056c2ef3417baee8f55a90ef3c96" target="_blank">▶ Demo</a></div>
+          <div class="proj-stack">NodeJS · ReactJS · OpenAI API · Shopify API</div>
+          <div class="proj-desc">AI-powered chatbot with AI dashboard (auto-answers queries), Hybrid dashboard, and Human dashboard (full agent takeover).</div>
+        </div>
+
+
+        <div class="proj-card">
+          <div class="proj-name">Shopify Contact Form App</div>
+          <div class="proj-stack">NodeJS · ReactJS · MySQL · Nodemailer</div>
+          <div class="proj-desc">Customer form submissions stored in DB and auto-emailed to store owner. Deployed on multiple live stores.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-name">Product Data Sync Automation</div>
+          <div class="proj-stack">NodeJS · Shopify Admin API · Cron Jobs</div>
+          <div class="proj-desc">API-based scheduler auto-fetches and syncs product data into a Shopify store every 2 days — zero manual intervention.</div>
+        </div>
+
+      </div>
+
+      <div class="stores-row">
+        <span class="stores-label">Live Stores:</span>
+        <a class="store-badge" href="https://54thrones.com" target="_blank">54thrones.com</a>
+        <a class="store-badge" href="https://thefocusfuel.com" target="_blank">thefocusfuel.com</a>
+        <a class="store-badge" href="https://totelpet.com" target="_blank">totelpet.com</a>
+        <a class="store-badge" href="https://gigli.com" target="_blank">Gigli.com</a>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="bottom-row">
+
+
+
+      <div>
+        <div class="bot-heading">Achievement</div>
+        <div class="ach-box">
+          <p>🏆 <strong>Ranked 14th in Himachal Pradesh</strong> — HPTU Merit List, B.Tech CSE</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="bot-heading">Hobbies</div>
+        <ul class="hob-list">
+          <li>Web designing &amp; modern UI creation</li>
+          <li>Exploring AI &amp; emerging technologies</li>
+          <li>Learning new languages &amp; frameworks</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

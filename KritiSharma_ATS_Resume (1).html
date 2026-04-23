@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kriti Sharma – Senior Software Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0e1f38;
+      --teal: #1a6b6e;
+      --gold: #c49a3c;
+      --lt: #edf4f4;
+      --muted: #4a5568;
+      --border: #d1dce8;
+      --soft: #f7f9fc;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9.8pt;
+      color: #1a202c;
+      background: #dde4ed;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 28px 16px;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fff;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP HEADER */
+    .header {
+      background: var(--navy);
+      padding: 35px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      right: -30px; top: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      border: 30px solid rgba(255,255,255,0.04);
+    }
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .name-area h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 35pt;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+    .name-area .role {
+      font-size: 10pt;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 6px;
+    }
+    .name-area .summary {
+      font-size: 9pt;
+      color: #fff;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+    }
+    .c-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10pt;
+      color: #fff;
+    }
+    .c-item svg { flex-shrink: 0; }
+    .c-item a { color: #ffffff; text-decoration: none; }
+
+    .gold-line {
+      height: 3px;
+      background: linear-gradient(to right, var(--gold) 0%, var(--teal) 60%, transparent 100%);
+    }
+
+    /* BODY */
+    .body {
+      display: grid;
+      grid-template-columns: 76mm 1fr;
+      flex: 1;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: var(--soft);
+      border-right: 1px solid var(--border);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .s-head {
+      font-family: 'Fraunces', serif;
+      font-size: 9pt;
+      color: var(--teal);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .s-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .skill-cat { margin-bottom: 7px; }
+    .skill-cat-name {
+      font-size: 6.8pt;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .tag {
+      background: var(--lt);
+      /* border: 1px solid #b2d4d4; */
+      color: var(--teal);
+      font-size: 6.8pt;
+      font-weight: 500;
+      padding: 1.5px 6px;
+      border-radius: 2px;
+    }
+
+    .dot-item {
+      font-size: 7.8pt;
+      color: var(--muted);
+      padding: 1.5px 0 1.5px 11px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .dot-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .edu-item { margin-bottom: 9px; }
+    .edu-school { font-size: 7.3pt; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .edu-deg { font-size: 7.2pt; color: var(--muted); }
+    .edu-yr { font-size: 6.8pt; color: #718096; }
+    .edu-sc { color: var(--gold); font-weight: 700; }
+
+    .ach-card {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 8px 10px;
+      font-size: 7.8pt;
+      color: #c5d8ec;
+      line-height: 1.55;
+  
+    }
+    .ach-card strong { color: var(--gold); }
+    .ach-card svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* MAIN */
+    .main {
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sec-title {
+      font-family: 'Fraunces', serif;
+      font-size: 10pt;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .sec-title::before {
+      content: '';
+      width: 4px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .exp-block { margin-bottom: 11px; }
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .exp-co { font-size: 10pt; font-weight: 700; color: var(--navy); }
+    .exp-ro { font-size: 9pt; font-weight: 500; color: var(--teal); margin-top: 1px; }
+    .exp-date {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--gold);
+      background: #fdf4e3;
+      padding: 1px 8px;
+      border-radius: 2px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .exp-ul { list-style: none; margin-top: 4px; }
+    .exp-ul li {
+      font-size: 7.8pt;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 1px;
+    }
+    .exp-ul li::before {
+      content: '';
+      position: absolute;
+      left: 1px; top: 7px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* Projects — left-bar list */
+    .proj-list { display: flex; flex-direction: column; gap: 8px; }
+    .proj-row {
+      display: grid;
+      grid-template-columns: 3px 1fr;
+      gap: 0 10px;
+    }
+    .proj-bar { background: var(--teal); border-radius: 2px; }
+    .proj-bar.gold { background: var(--gold); }
+    .proj-inner { padding: 4px 0; }
+    .proj-name {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .proj-tech {
+      font-size: 7pt;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .proj-desc {
+      font-size: 7.5pt;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .stores { display: flex; flex-wrap: wrap; gap: 5px; }
+    .store {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      background: var(--lt);
+      padding: 2px 10px;
+      border-radius: 2px;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .page { box-shadow: none; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="name-area">
+        <h1>Kriti Sharma</h1>
+        <div class="role">Software Developer</div>
+        <div class="summary">2+ years building Shopify apps, automation systems &amp; full-stack web solutions. Currently leading a team at Nivara Commerce LLP.</div>
+      </div>
+      <div class="contact-grid">
+        <div class="c-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91-78766-69518
+        </div>
+        <div class="c-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:kritisharma9518@gmail.com">kritisharma9518@gmail.com</a>
+        </div>
+        <div class="c-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mohali, Punjab, India
+        </div>
+        <div class="c-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <a href="#">Portfolio / Blogs.com</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="gold-line"></div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div>
+        <div class="s-head">Skills</div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Languages</div>
+          <div class="tags">
+            <span class="tag">PHP</span><span class="tag">JavaScript</span>
+            <span class="tag">Python</span><span class="tag">Java</span>
+            <span class="tag">HTML5</span><span class="tag">CSS3</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Frameworks</div>
+          <div class="tags">
+            <span class="tag">ReactJS</span><span class="tag">NodeJS</span><span class="tag">Laravel</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Shopify Ecosystem</div>
+          <div class="tags">
+            <span class="tag">Shopify API</span><span class="tag">Polaris UI</span>
+            <span class="tag">Liquid</span><span class="tag">App Bridge</span>
+            <span class="tag">Webhooks</span><span class="tag">Metafields</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">CMS &amp; Platforms</div>
+          <div class="tags">
+            <span class="tag">Shopify</span><span class="tag">WordPress</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Databases</div>
+          <div class="tags">
+            <span class="tag">MySQL</span><span class="tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">APIs &amp; Integrations</div>
+          <div class="tags">
+            <span class="tag">Google Sheets API</span><span class="tag">REST API</span>
+            <span class="tag">CSV</span><span class="tag">ESF</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Tools</div>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">VS Code</span>
+            <span class="tag">Postman</span><span class="tag">XAMPP</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Paradigm</div>
+          <div class="tags"><span class="tag">OOP</span><span class="tag">REST</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-head">Soft Skills</div>
+        <div class="dot-item">Team Leadership (2–3 Juniors)</div>
+        <div class="dot-item">Communication</div>
+        <div class="dot-item">Time Management</div>
+        <div class="dot-item">Critical Thinking</div>
+        <div class="dot-item">Decision Making</div>
+        <div class="dot-item">Multi-tasking</div>
+      </div>
+
+      <div>
+        <div class="s-head">Education</div>
+        <div class="edu-item">
+          <div class="edu-school">Atal Bihari Vajpayee Govt. Institute of Engg. &amp; Tech., Gumma, HP</div>
+          <div class="edu-deg">B.Tech – CSE &nbsp;<span class="edu-sc">8.47 CGPA</span></div>
+          <div class="edu-yr">2020 – 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Govt. Sr. Sec. School Nalti, Hamirpur, HP</div>
+          <div class="edu-deg">12th Non-Medical &nbsp;<span class="edu-sc">90%</span></div>
+          <div class="edu-yr">2019 – 2020</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Govt. High School Brahlari, Hamirpur, HP</div>
+          <div class="edu-deg">10th &nbsp;<span class="edu-sc">82%</span></div>
+          <div class="edu-yr">2017 – 2018</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-head">Achievement</div>
+        <div class="ach-card">
+          Ranked <strong>14th in Himachal Pradesh</strong> — HPTU Merit List, B.Tech CSE
+        </div>
+      </div>
+
+      <div>
+        <div class="s-head">Strengths</div>
+        <div class="dot-item">Shopify app dev &amp; API integration</div>
+        <div class="dot-item">Debugging live production websites</div>
+        <div class="dot-item">Client requirement analysis</div>
+        <div class="dot-item">Fast learner — modern frameworks</div>
+        <div class="dot-item">Mentoring &amp; leading junior devs</div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- Experience -->
+      <div>
+        <div class="sec-title">Professional Experience</div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div>
+              <div class="exp-co">Nivara Commerce LLP</div>
+              <div class="exp-ro">Senior Web Developer &amp; Team Lead</div>
+            </div>
+            <div class="exp-date">Nov 2025 – Present</div>
+          </div>
+          <ul class="exp-ul">
+            <li>Leading &amp; mentoring a team of 2–3 junior developers — task allocation, code reviews, and on-time delivery.</li>
+            <li>Architecting Shopify apps (AI Chatbot, Bundle, Store Migration) using NodeJS, ReactJS, and Shopify APIs.</li>
+            <li>Managing metafield operations, data export/import pipelines, and store automation across multiple client accounts.</li>
+            <li>Built AI, Hybrid, and Human dashboard flows for intelligent customer support chatbot.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div>
+              <div class="exp-co">EKROCX Technologies</div>
+              <div class="exp-ro">Software Developer</div>
+            </div>
+            <div class="exp-date">Apr 2024 – Oct 2025</div>
+          </div>
+          <ul class="exp-ul">
+            <li>Built and optimized websites and web apps using Shopify, WordPress, ReactJS, and NodeJS.</li>
+            <li>Customized Shopify themes; developed Contact Form App &amp; Bundle App using NodeJS and ReactJS.</li>
+            <li>Delivered 4+ live Shopify stores: 54thrones.com, thefocusfuel.com, totelpet.com, Gigli.com.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-top">
+            <div>
+              <div class="exp-co">CDAC Mohali</div>
+              <div class="exp-ro">Web Development Trainee</div>
+            </div>
+            <div class="exp-date">Training – 3 Months</div>
+          </div>
+          <ul class="exp-ul">
+            <li>Hands-on training in HTML, CSS, JavaScript, PHP, and Laravel with practical web project builds.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div>
+        <div class="sec-title">Key Projects</div>
+        <div class="proj-list">
+
+          <div class="proj-row">
+            <div class="proj-bar gold"></div>
+            <div class="proj-inner">
+              <div class="proj-name">ShopBoost 360 – Shopify App</div>
+              <div class="proj-tech">NodeJS · ReactJS · Shopify API · Polaris UI · App Bridge</div>
+              <div class="proj-desc">All-in-one merchant app with three modules — <strong>Product Bundles</strong> (assign multiple products to a main product, full CRUD + storefront display), <strong>Compare Products</strong> (side-by-side storefront comparison widget), and <strong>Recently Viewed</strong> (browsing history tracker to boost conversions).</div>
+            </div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-bar gold"></div>
+            <div class="proj-inner">
+              <div class="proj-name">Duplicate Store App – Store Migration Tool</div>
+              <div class="proj-tech">Python · Shopify Admin API · NodeJS · CSV · ESF · Google Sheets API</div>
+              <div class="proj-desc">Merchants select products, orders, or full store data → system exports as a <strong>ZIP archive</strong>, importable into any Shopify store. Features: CSV import/export, ESF product import/export, and <strong>Google Sheets API</strong> — auto-syncs product sheet every 24 hours without manual intervention.</div>
+            </div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-bar"></div>
+            <div class="proj-inner">
+              <div class="proj-name">Shopify AI Chatbot App</div>
+              <div class="proj-tech">NodeJS · ReactJS · OpenAI API · Shopify API</div>
+              <div class="proj-desc">AI-powered support chatbot with AI dashboard (auto-answers shipping &amp; product queries), Hybrid dashboard, and Human dashboard (full agent takeover). Reduces merchant support load significantly.</div>
+            </div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-bar"></div>
+            <div class="proj-inner">
+              <div class="proj-name">Product Data Sync Automation</div>
+              <div class="proj-tech">NodeJS · Shopify Admin API · Cron Jobs</div>
+              <div class="proj-desc">API-based scheduler that auto-fetches and syncs product data into a Shopify store every 2 days — zero manual intervention required.</div>
+            </div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-bar"></div>
+            <div class="proj-inner">
+              <div class="proj-name">Shopify Contact Form App</div>
+              <div class="proj-tech">NodeJS · ReactJS · MySQL · Nodemailer</div>
+              <div class="proj-desc">Customer form submissions stored in DB and auto-emailed to store owner. Deployed on multiple live Shopify stores.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Live Stores -->
+      <div>
+        <div class="sec-title">Live Shopify Store Projects</div>
+        <div class="stores">
+          <span class="store">54thrones.com</span>
+          <span class="store">thefocusfuel.com</span>
+          <span class="store">totelpet.com</span>
+          <span class="store">Gigli.com</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</div>
+</body>
+</html>
